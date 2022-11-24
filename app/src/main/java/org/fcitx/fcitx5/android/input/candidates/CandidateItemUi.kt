@@ -1,6 +1,7 @@
 package org.fcitx.fcitx5.android.input.candidates
 
 import android.content.Context
+import android.graphics.Color
 import org.fcitx.fcitx5.android.data.prefs.AppPrefs
 import org.fcitx.fcitx5.android.data.theme.Theme
 import org.fcitx.fcitx5.android.input.keyboard.CustomGestureView
@@ -8,6 +9,7 @@ import org.fcitx.fcitx5.android.utils.pressHighlightDrawable
 import splitties.dimensions.dp
 import splitties.views.dsl.core.*
 import splitties.views.gravityCenter
+import splitties.views.gravityTopStart
 import splitties.views.horizontalPadding
 
 class CandidateItemUi(override val ctx: Context, theme: Theme) : Ui {
@@ -23,6 +25,13 @@ class CandidateItemUi(override val ctx: Context, theme: Theme) : Ui {
         setTextColor(theme.keyTextColor)
     }
 
+    val index = textView {
+        textSize = 5f
+        isSingleLine = true
+        gravity = gravityCenter
+        setTextColor(Color.RED)
+    }
+
     override val root = view(::CustomGestureView) {
         minimumWidth = dp(40)
         horizontalPadding = dp(8)
@@ -31,6 +40,10 @@ class CandidateItemUi(override val ctx: Context, theme: Theme) : Ui {
 
         add(text, lParams(wrapContent, matchParent) {
             gravity = gravityCenter
+        })
+
+        add(index,lParams(wrapContent,wrapContent){
+            gravity = gravityTopStart
         })
     }
 }

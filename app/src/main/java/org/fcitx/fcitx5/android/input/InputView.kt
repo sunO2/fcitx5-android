@@ -35,6 +35,7 @@ import org.fcitx.fcitx5.android.input.popup.PopupComponent
 import org.fcitx.fcitx5.android.input.preedit.PreeditComponent
 import org.fcitx.fcitx5.android.input.punctuation.PunctuationComponent
 import org.fcitx.fcitx5.android.input.wm.InputWindowManager
+import org.fcitx.fcitx5.android.scrcpy.ScrcpyKeyboardEvent
 import org.fcitx.fcitx5.android.utils.styledFloat
 import org.mechdancer.dependency.DynamicScope
 import org.mechdancer.dependency.manager.wrapToUniqueComponent
@@ -81,6 +82,7 @@ class InputView(
     private val symbolPicker = symbolPicker()
     private val emojiPicker = emojiPicker()
     private val emoticonPicker = emoticonPicker()
+    private val scrcpyKeyboardEvent = ScrcpyKeyboardEvent();
 
     private fun setupScope() {
         scope += this@InputView.wrapToUniqueComponent()
@@ -101,6 +103,7 @@ class InputView(
         scope += symbolPicker
         scope += emojiPicker
         scope += emoticonPicker
+        scope += scrcpyKeyboardEvent
         broadcaster.onScopeSetupFinished(scope)
     }
 

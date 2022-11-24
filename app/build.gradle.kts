@@ -162,6 +162,7 @@ project.gradle.taskGraph.whenReady {
         .find { it.name.startsWith("buildCMakeDebug[") || it.name.startsWith("buildCMakeRelWithDebInfo[") }
     if (buildCMakeABITask != null) {
         val cmakeDir = buildCMakeABITask.outputs.files.first().parentFile
+        print("cmakeDir--------------------$cmakeDir")
         ext.set("cmakeDir", cmakeDir)
     }
 }
