@@ -940,7 +940,7 @@ class FcitxInputMethodService : LifecycleInputMethodService() {
             .Builder(Size(0, 0), Size(Int.MAX_VALUE, Int.MAX_VALUE))
             .setStyle(styleBundle)
             .build()
-        return InlineSuggestionsRequest.Builder(listOf(spec))
+        return InlineSuggestionsRequest.Builder(listOf(spec,spec,spec,spec,spec))
             .setMaxSuggestionCount(InlineSuggestionsRequest.SUGGESTION_COUNT_UNLIMITED)
             .build()
     }
