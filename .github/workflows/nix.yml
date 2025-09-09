@@ -25,3 +25,8 @@ jobs:
         run: |
           nix develop .#noAS --command ./gradlew :app:assembleDebug
           # nix develop .#noAS --command ./gradlew :assembleReleasePlugins
+      - name: Upload app
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/release/
